@@ -1,0 +1,18 @@
+name: Build React App
+on:
+  push:
+    branches:  [ main ]
+jobs:
+  build-react-app:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v6.0.1
+      - name: Setup Nodejs
+        uses: actions/setup-node@v6.1.0
+        with:
+          node-version: 22.x  
+      - name: Install Dependencies
+        run:  npm install
+      - name: Build React App
+        run:  npm run build
